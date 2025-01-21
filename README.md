@@ -1,7 +1,5 @@
 # Sign Language to Text Conversion
 
-![Output Video](images/outputVideo_gif.gif)
-[YouTube](https://www.youtube.com/watch?v=Rd04XB6F0pU)
 ## Abstract
 
 Sign language is one of the oldest and most natural form of language for communication, but since most people do not know sign language and interpreters are very difficult to come by we have come up with a real time method using neural networks for fingerspelling based american sign language.
@@ -18,15 +16,7 @@ Deaf and Mute(Dumb)(D&M) people make use of their hands to express different ges
 
 Gestures are the nonverbally exchanged messages and these gestures are understood with vision. This nonverbal communication of deaf and dumb people is called sign language. 
 
-Sign language is a visual language and consists of 3 major components 
-
-![components](images/components.jpg)
-
 In this project I basically focus on producing a model which can recognize Fingerspelling based hand gestures in order to form a complete word by combining each gesture. 
-
-The gestures I  trained are as given in the image below.
-
-![Signs](images/signs.jpg)
 
 # Steps of building this project
 
@@ -71,15 +61,7 @@ for i in string.ascii_uppercase:
 
 I captured each frame shown by the webcam of our machine. 
 
-In each frame I defined a region of interest (ROI) which is denoted by a blue bounded square as shown in the image below.
-
-![Training Data Collection Image](images/trainingdata.png)
-
 After capturing the image from the ROI, I applied gaussian blur filter to the image which helps for extracting various features of the image. 
-
-The image after applying gaussian blur looks like below.
-
-![ROI](images/roi.png)
 
 ### The code for image proceesing is as following :
 
@@ -107,8 +89,6 @@ The neurons in a layer will only be connected to a small region of the layer (wi
 
 Moreover, the final output layer would have dimensions(number of classes), because by the end of the CNN architecture we will reduce the full image into a single vector of class scores.
 
-![CNN](images/cnn.png)
-
 ##### 1. Convolutional Layer:  
 In convolution layer I  have taken a small window size [typically of length 5*5] that extends to the depth of the input matrix. 
 
@@ -131,8 +111,6 @@ Well lid this window and continue this process, so well finally get an activatio
 ##### b. Average Pooling: 
 In average pooling we take average of all Values in a window.
 
-![pooling](images/pooling.jpg)
-
 ##### 3. Fully Connected Layer:
 In convolution layer neurons are connected only to a local region, while in a fully connected region, well connect the all the inputs to neurons.
 
@@ -142,10 +120,6 @@ In convolution layer neurons are connected only to a local region, while in a fu
 
 ##### 4. Final Output Layer: 
 After getting values from fully connected layer, well connect them to final layer of neurons [having count equal to total number of classes], that will predict the probability of each image to be in different classes.
-
-![Model Summary](images/model_summary.PNG)
-
-![Output](images/output.PNG)
 
 ### 4: The final step after the model has been trained is of creating a GUI that will be used to convert Sings into text and form sentence, which would be helpful for communicating with D&M people.
 
@@ -180,26 +154,8 @@ So, to handle above cases I made three different classifiers for classifying the
 2.	{T, K, D, I}
 3.	{S, M, N} 
 
-The GUI(Graphical User Interface) of the application is as shown below :
-
-![GUI](images/gui.png)
-
-Flow Chart for Gesture Classification is as following :
-
-![gesture Classification](images/gesture.PNG)
-
-Application Working Diagram is as following :
-
-![application](images/app.PNG)
-
 ### 5. Results:
 I have achieved an accuracy of 95.8% in my model using only layer 1 of the algorithm, and using the combination of layer 1 and layer 2 I achieve an accuracy of 98.0%.
-
-Below are the confusion matrices for our results:
-
-![algo1](images/algo1Result.jpg)
-![algo1 + algo2](images/algo12Result.jpg)
-
 
 ## Libraries Requirements -(Requires the latest pip version to install all the packages)
 
@@ -235,26 +191,4 @@ Note : Python 3.8 or above is required to build this project, as some of the lib
 ``` python
 python /path/to/the/Application.py
 ```
-# License
 
-Copyright (c) 2021 Nikhil Gupta
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-  
